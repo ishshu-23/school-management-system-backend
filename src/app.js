@@ -1,13 +1,11 @@
-import express from 'express';
+import express from 'express'
+import schoolRoutes from './routes/school.route.js'
+import './config/database.js'
 
-const app = express();
+const app = express()
 
-app.use(express.json());
+app.use(express.json())
 
-app.get('/', (req, res) => {
-    res.json({
-        message: 'backend is running'
-    })
-})
+app.use('/api/school', schoolRoutes)
 
-export default app;
+export default app
