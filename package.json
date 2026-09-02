@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/ishshu-23/weather-app-backend#readme",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
     "mysql2": "^3.24.2",
     "pg": "^8.23.0"
   },
