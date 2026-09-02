@@ -1,15 +1,16 @@
-import { register } from "../../services/school/auth.service.js"
+import { register } from '../../services/auth/auth.service.js'
 
 export const registerUser = async (req, res, next) => {
-    try {
-        const { name, email, password, role } = req.body;
-    
-        const result = await register(name, email, password, role)
+  try {
+    const { name, email, password, role } = req.body
 
-        return res.status(201).json({
-            message: "User registered successfully",
-            user: result
-        })
+    const result = await register(name, email, password, role)
 
-    } catch(error) { next(error) }
+    return res.status(201).json({
+      message: 'User registered successfully',
+      user: result,
+    })
+  } catch (error) {
+    next(error)
+  }
 }

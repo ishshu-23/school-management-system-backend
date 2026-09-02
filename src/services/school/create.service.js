@@ -1,11 +1,10 @@
 import pool from '../../config/database.js'
+import { insert } from '../../utils/db.utils.js'
 
-export default async (name, address) => {
-  const [result] = await pool.query(
-    `INSERT INTO schools (name, address)
-     VALUES (?, ?)`,
-    [name, address]
+export const createSchool = async (school) => {
+  return await insert(
+    'schools',
+    Object.keys(school),
+    Object.values(school).map((val) => val ?? null)
   )
-
-  return result
 }

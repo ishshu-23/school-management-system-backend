@@ -9,9 +9,9 @@ const app = express()
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.json({
-        message: 'server is working'
-    })
+  res.json({
+    message: 'server is working',
+  })
 })
 
 app.use('/api/school', schoolRoutes)

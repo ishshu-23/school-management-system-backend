@@ -1,5 +1,7 @@
-export default (req, res) => {
-  res.json({
-    message: 'deleting school',
-  })
+export default (req, res, next) => {
+  try {
+        
+  } catch (error) {
+    next(error)
+  }
 }

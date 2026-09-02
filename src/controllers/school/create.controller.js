@@ -1,20 +1,14 @@
-import { createSchool as createSchoolService } from '../../services/index.js'
+import { createSchool } from '../../services/school/create.service.js'
 
-export default async (req, res) => {
+export const create = async (req, res, next) => {
   try {
-    const { name, address } = req.body
-
-    const school = await createSchoolService(name, address)
+    const result = await createSchool(req.body)
 
     res.status(201).json({
       message: 'School created successfully',
-      school,
+      schoolId: result.insertId,
     })
   } catch (error) {
-    console.error(error)
-
-    res.status(500).json({
-      message: 'Something went wrong',
-    })
+    next(error)
   }
 }
